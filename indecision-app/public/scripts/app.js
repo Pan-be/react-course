@@ -31,18 +31,53 @@ var template = React.createElement(
 );
 
 var count = 0;
+var addOne = function addOne() {
+	count++;
+	renderCounterApp();
+	console.log('click', count);
+};
 
-var templateTwo = React.createElement(
-	"div",
-	null,
-	React.createElement(
-		"h1",
+var subtractOne = function subtractOne() {
+	count--;
+	renderCounterApp();
+	console.log("-1");
+};
+
+var reset = function reset(params) {
+	count = 0;
+	renderCounterApp();
+	console.log('reset');
+};
+
+var renderCounterApp = function renderCounterApp() {
+	var templateTwo = React.createElement(
+		"div",
 		null,
-		"Count: ",
-		count
-	)
-);
+		React.createElement(
+			"h1",
+			null,
+			"Count: ",
+			count
+		),
+		React.createElement(
+			"button",
+			{ onClick: addOne },
+			"+1"
+		),
+		React.createElement(
+			"button",
+			{ onClick: subtractOne },
+			"-1"
+		),
+		React.createElement(
+			"button",
+			{ onClick: reset },
+			"Reset"
+		)
+	);
+	ReactDOM.render(templateTwo, appRoot);
+};
 
 var appRoot = document.getElementById("app");
 
-ReactDOM.render(templateTwo, appRoot);
+renderCounterApp();
