@@ -3,6 +3,7 @@
 console.log("App.js is running");
 
 //JSX - JavaScript XML
+var number = 0;
 
 var app = {
 	title: "Indecision App",
@@ -22,6 +23,19 @@ var onFormSubmit = function onFormSubmit(e) {
 
 	console.log(app.options);
 };
+
+var onRemoveAll = function onRemoveAll() {
+	app.options = [];
+	renderApp();
+};
+
+var onMakeDecision = function onMakeDecision() {
+	var randomNum = Math.floor(Math.random() * app.options.length);
+	var option = app.options[randomNum];
+	alert(option);
+};
+
+var appRoot = document.getElementById("app");
 
 var renderApp = function renderApp() {
 	var template = React.createElement(
@@ -43,23 +57,30 @@ var renderApp = function renderApp() {
 			app.options.length > 0 ? "Here are your options." : "No options"
 		),
 		React.createElement(
+			"button",
+			{ disabled: app.options.length === 0 ? true : false, onClick: onMakeDecision },
+			"What should I do?"
+		),
+		React.createElement(
 			"p",
 			null,
 			app.options.length
 		),
 		React.createElement(
+			"button",
+			{ onClick: onRemoveAll },
+			"Remove All"
+		),
+		React.createElement(
 			"ol",
 			null,
-			React.createElement(
-				"li",
-				null,
-				"Options one"
-			),
-			React.createElement(
-				"li",
-				null,
-				"Options two"
-			)
+			app.options.map(function (option) {
+				return React.createElement(
+					"li",
+					{ key: number++ },
+					option
+				);
+			})
 		),
 		React.createElement(
 			"form",
@@ -75,5 +96,4 @@ var renderApp = function renderApp() {
 	ReactDOM.render(template, appRoot);
 };
 
-var appRoot = document.getElementById("app");
 renderApp();
