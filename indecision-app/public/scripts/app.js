@@ -150,7 +150,11 @@ var AddOption = function (_React$Component5) {
 	_createClass(AddOption, [{
 		key: "handleAddOption",
 		value: function handleAddOption(e) {
-			alert("" + e.target.elements.option.value);
+			e.preventDefault();
+			var option = e.target.elements.option.value.trim();
+			if (option) {
+				alert("" + option);
+			}
 		}
 	}, {
 		key: "render",
