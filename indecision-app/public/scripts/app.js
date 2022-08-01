@@ -22,7 +22,7 @@ var IndecisionApp = function (_React$Component) {
 		value: function render() {
 			var title = "Indecision";
 			var subtitle = "Put your life in the hands of a computer.";
-			var options = ['Thing one', 'Thing two', 'Thing four'];
+			var options = ["Thing one", "Thing two", "Thing four"];
 
 			return React.createElement(
 				"div",
@@ -83,7 +83,7 @@ var Action = function (_React$Component3) {
 	_createClass(Action, [{
 		key: "handlePick",
 		value: function handlePick() {
-			alert('handlePick');
+			alert("handlePick");
 		}
 	}, {
 		key: "render",
@@ -115,7 +115,7 @@ var Options = function (_React$Component4) {
 	_createClass(Options, [{
 		key: "handleRemoveAll",
 		value: function handleRemoveAll() {
-			alert('removeAll');
+			alert("removeAll");
 		}
 	}, {
 		key: "render",
@@ -148,6 +148,11 @@ var AddOption = function (_React$Component5) {
 	}
 
 	_createClass(AddOption, [{
+		key: "handleAddOption",
+		value: function handleAddOption(e) {
+			alert("" + e.target.elements.option.value);
+		}
+	}, {
 		key: "render",
 		value: function render() {
 			return React.createElement(
@@ -155,7 +160,7 @@ var AddOption = function (_React$Component5) {
 				null,
 				React.createElement(
 					"form",
-					null,
+					{ onSubmit: this.handleAddOption },
 					React.createElement("input", { type: "text", name: "option" }),
 					React.createElement(
 						"button",
