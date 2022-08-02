@@ -1,32 +1,62 @@
-let count = 0
-const addOne = () => {
-	count++
-	renderCounterApp()
-	console.log("click", count)
+class Counter extends React.Component {
+	constructor(props) {
+		super(props)
+		this.handleAddOne = this.handleAddOne.bind(this)
+		this.handleMinusOne = this.handleMinusOne.bind(this)
+		this.handleReset = this.handleReset.bind(this)
+	}
+	handleAddOne() {
+		alert("handleAddOne")
+	}
+	handleMinusOne() {
+		alert("minus")
+	}
+	handleReset() {
+		alert("reset")
+	}
+	render() {
+		return (
+			<div>
+				<h1>Count:</h1>
+				<button onClick={this.handleAddOne}>+1</button>
+				<button onClick={this.handleMinusOne}>-1</button>
+				<button onClick={this.handleReset}>Reset</button>
+			</div>
+		)
+	}
 }
 
-const subtractOne = () => {
-	count--
-	renderCounterApp()
-	console.log("-1")
-}
+ReactDOM.render(<Counter />, document.getElementById("app"))
 
-const reset = (params) => {
-	count = 0
-	renderCounterApp()
-	console.log("reset")
-}
+// let count = 0
+// const addOne = () => {
+// 	count++
+// 	renderCounterApp()
+// 	console.log("click", count)
+// }
 
-const renderCounterApp = () => {
-	const templateTwo = (
-		<div>
-			<h1>Count: {count}</h1>
-			<button onClick={addOne}>+1</button>
-			<button onClick={subtractOne}>-1</button>
-			<button onClick={reset}>Reset</button>
-		</div>
-	)
-	ReactDOM.render(templateTwo, appRoot)
-}
+// const subtractOne = () => {
+// 	count--
+// 	renderCounterApp()
+// 	console.log("-1")
+// }
 
-renderCounterApp()
+// const reset = (params) => {
+// 	count = 0
+// 	renderCounterApp()
+// 	console.log("reset")
+// }
+
+// const renderCounterApp = () => {
+// 	const templateTwo = (
+// 		<div>
+// 			<h1>Count: {count}</h1>
+// 			<button onClick={addOne}>+1</button>
+// 			<button onClick={subtractOne}>-1</button>
+// 			<button onClick={reset}>Reset</button>
+// 		</div>
+// 	)
+// 	ReactDOM.render(templateTwo, appRoot)
+// }
+
+// renderCounterApp()
