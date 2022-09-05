@@ -1,3 +1,7 @@
 const square = (x) => x * x
 
-export { square }
+const subtract = (a, b) => {
+	return a - b
+}
+
+export { square, subtract as default }

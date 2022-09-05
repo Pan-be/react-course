@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log(!1),console.log(!1),console.log(10*10)})();
+(()=>{"use strict";const o=o=>o>=65;console.log(!1),console.log(!1),console.log(o(70)),console.log(o(60))})();
