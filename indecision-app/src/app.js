@@ -1,4 +1,6 @@
-console.log("app is running")
-import "./"
+import { square } from "./utils"
+import { isAdult, canDrink } from "./person.js"
 
-console.log("app.js is running and running")
+console.log(isAdult(10))
+console.log(canDrink(12))
+console.log(square(10))
